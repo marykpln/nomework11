@@ -1,15 +1,15 @@
 function sumDigits(num) {
-  if (num < 0) {
-    num = -num;
-  }
-
-  let sum = 0;
   if (isNaN(num)) {
     return NaN;
   }
-  for (; num > 0; num = num / 10) {
-    sum += Math.floor(num % 10);
+  if (num < 0) {
+    num = -num;
   }
+  let sum = 0;
+  do {
+    sum += Math.floor(num % 10);
+    num = num / 10;
+  } while (num > 0);
 
   return sum;
 }
@@ -20,7 +20,7 @@ function sumDigits(num) {
 
 function displayAnanas() {
   const a = "a";
-  const str = `a${Number(a)}as`;
+  const str = `a${+a}as`;
   console.log(str.toLocaleLowerCase());
 }
 
